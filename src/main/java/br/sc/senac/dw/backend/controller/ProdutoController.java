@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,6 +23,12 @@ public class ProdutoController {
 	public List<Produto> listarTodosProdutos() {
 		//TODO consultar no banco (através de um Repository/DAO)
 		return produtoService.listarTodos();
+	}
+	
+	@GetMapping(path = "/{id}")
+	public Produto consultarPorId(@PathVariable Integer id) {
+		//TODO consultar no banco (através de um Repository/DAO)
+		return produtoService.consultarPorId(id);
 	}
 
 }

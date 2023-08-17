@@ -1,6 +1,7 @@
 package br.sc.senac.dw.backend.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,7 +24,12 @@ public class ProdutoService {
 		return produtoRepository.findAll();
 	}
 	
-	
+	@Transactional
+	public Produto consultarPorId(Integer id) {
+		Produto produtoBuscado = produtoRepository.getReferenceById(id.longValue()); // GET REFERENCERED BY ID RETORNA SÓ 1 ID
+		
+		return produtoBuscado;
+	}
 	
 
 }

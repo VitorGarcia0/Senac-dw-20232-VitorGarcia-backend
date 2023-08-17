@@ -6,29 +6,22 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "produto")
+@NoArgsConstructor
 	public class Produto {
 
 	@Id
-	private int id;
+	private Integer id;
 	private String nome;
 	private String fabricante;
-	private double valor;
-	private double peso;
+	private Double valor;
+	private Double peso;
 	private LocalDate dataCadastro;
-
-	public Produto(String nome, String fabricante, double valor, double peso, LocalDate dataCadastro) {
-		super();
-		this.nome = nome;
-		this.fabricante = fabricante;
-		this.valor = valor;
-		this.peso = peso;
-		this.dataCadastro = dataCadastro;
-	}
-
-	public Produto(int id, String nome, String fabricante, double valor, double peso, LocalDate dataCadastro) {
+	
+	public Produto(Integer id, String nome, String fabricante, Double valor, Double peso, LocalDate dataCadastro) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -43,11 +36,11 @@ import lombok.Data;
 		// TODO Auto-generated constructor stub
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -67,19 +60,19 @@ import lombok.Data;
 		this.fabricante = fabricante;
 	}
 
-	public double getValor() {
+	public Double getValor() {
 		return valor;
 	}
 
-	public void setValor(double valor) {
+	public void setValor(Double valor) {
 		this.valor = valor;
 	}
 
-	public double getPeso() {
+	public Double getPeso() {
 		return peso;
 	}
 
-	public void setPeso(double peso) {
+	public void setPeso(Double peso) {
 		this.peso = peso;
 	}
 
@@ -90,5 +83,8 @@ import lombok.Data;
 	public void setDataCadastro(LocalDate dataCadastro) {
 		this.dataCadastro = dataCadastro;
 	}
-
+	
 }
+
+	
+	
