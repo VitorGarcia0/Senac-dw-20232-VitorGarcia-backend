@@ -26,7 +26,7 @@ public class ProdutoController {
 	}
 	
 	@GetMapping(path = "/{id}")
-	public Produto consultarPorId(@PathVariable Integer id) {
+	public Produto consultarPorId(@PathVariable Integer id) {   //PATH VARIABLE PERMITE PESQUISAR NA URL DIRETO COM O NÚMERO
 		//TODO consultar no banco (através de um Repository/DAO)
 		return produtoService.consultarPorId(id);
 	}
