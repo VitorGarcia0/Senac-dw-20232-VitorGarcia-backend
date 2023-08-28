@@ -4,11 +4,14 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import br.sc.senac.dw.backend.exception.CampoInvalidoException;
 import br.sc.senac.dw.backend.model.entity.Produto;
 import br.sc.senac.dw.backend.model.repository.ProdutoRepository;
+import br.sc.senac.dw.backend.model.seletor.ProdutoSeletor;
+import br.sc.senac.dw.backend.model.specification.ProdutoSpecifications;
 import jakarta.transaction.Transactional;
 
 @Service
@@ -21,14 +24,18 @@ public class ProdutoService {
 	
 	@Transactional
 	public List<Produto> listarTodos() {
-		// TODO Auto-generated method stub
 		return produtoRepository.findAll();
+	}
+	
+	public List<Produto> listarComSeletor(ProdutoSeletor seletor) {
+		//https://www.baeldung.com/spring-data-jpa-query-by-example
+		Specification<Produto> specification = ProdutoSpecifications.comFiltros(seletor);
+		return produtoRepository.findAll(specification);
 	}
 	
 	@Transactional
 	public Produto consultarPorId(Long id) {
 		// GET REFERENCERED BY ID RETORNA SÓ 1 ID
-		
 		return produtoRepository.findById(id.longValue()).get();
 	}
 

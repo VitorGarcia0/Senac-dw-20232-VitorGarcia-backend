@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.sc.senac.dw.backend.exception.CampoInvalidoException;
 import br.sc.senac.dw.backend.model.entity.Produto;
+import br.sc.senac.dw.backend.model.seletor.ProdutoSeletor;
 import br.sc.senac.dw.backend.service.ProdutoService;
 
 @RestController
@@ -23,7 +24,7 @@ public class ProdutoController {
 	@Autowired
 	private ProdutoService produtoService;  // service = ANTIGO BO
 	
-	
+	// GET: usado para consultas
 	@GetMapping
 	public List<Produto> listarTodosProdutos() {
 		//TODO consultar no banco (através de um Repository/DAO)
@@ -36,11 +37,34 @@ public class ProdutoController {
 		return produtoService.consultarPorId(id.longValue());
 	}
 	
+	/**
+	 * Método POST: geralmente utilizado para inserir novos registros
+	 * Parâmetros são enviados no corpo da requisição HTTP, 
+	 * para isso usamos a anotação @RequestBody
+	 * 
+	 * @return o produto salvo, com id preenchido
+	 * @throws CampoInvalidoException 
+	 */
+	
+	@PostMapping("/filtro")
+	public List<Produto> listarComSeletor(@RequestBody ProdutoSeletor seletor){
+		return produtoService.listarComSeletor(seletor);
+	}
+	
 	@PostMapping
 	public Produto salvar(@RequestBody Produto novoProduto) throws CampoInvalidoException {
 		return produtoService.inserir(novoProduto);
-		
-	}
+	}	
+	
+	/**
+	 * Método PUT: utilizado para atualizar registros. 
+	 * Muitas vezes é usado o POST em seu lugar
+	 * Parâmetros são enviados no corpo da requisição HTTP, 
+	 * para isso usamos a anotação @RequestBody
+	 * 
+	 * @return um booleano indicando se o produto em questão foi atualizado
+	 * @throws CampoInvalidoException 
+	 */
 	
 	@PutMapping
 	public boolean atualizar(@RequestBody Produto produtoParaAtualizar) throws CampoInvalidoException {
