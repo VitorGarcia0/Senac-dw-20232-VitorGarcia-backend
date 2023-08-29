@@ -33,10 +33,10 @@ public class ProdutoSpecifications {
 	                		+ seletor.getNome().toLowerCase() + "%"));
 	            }
 	            
-	            if (seletor.getFabricante() != null) {
-	                predicates.add(cb.like(cb.lower(root.get("fabricante")), "%" 
-	                		+ seletor.getFabricante().toLowerCase() + "%"));
-	            }
+//	            if (seletor.getFabricante() != null) {
+//	                predicates.add(cb.like(cb.lower(root.get("fabricante")), "%" 
+//	                		+ seletor.getFabricante().toLowerCase() + "%"));
+//	            }
 	            
 	            if(seletor.getPesoMinimo() != null && seletor.getPesoMaximo() != null) {
 	            	//WHERE peso BETWEEN min AND max
