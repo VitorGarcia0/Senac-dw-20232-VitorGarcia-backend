@@ -3,7 +3,11 @@ package br.sc.senac.dw.backend.model.entity;
 import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,17 +15,21 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "produto")
 @NoArgsConstructor
-	public class Produto {
+public class Produto {
 
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	private Integer id;
 	private String nome;
-	private String fabricante;
+
+	@ManyToOne
+	@JoinColumn(name = "id_fabricante")
+	private Fabricante fabricante;
 	private Double valor;
 	private Double peso;
 	private LocalDate dataCadastro;
-	
-	public Produto(Integer id, String nome, String fabricante, Double valor, Double peso, LocalDate dataCadastro) {
+
+	public Produto(Integer id, String nome, Fabricante fabricante, Double valor, Double peso, LocalDate dataCadastro) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -52,14 +60,6 @@ import lombok.NoArgsConstructor;
 		this.nome = nome;
 	}
 
-	public String getFabricante() {
-		return fabricante;
-	}
-
-	public void setFabricante(String fabricante) {
-		this.fabricante = fabricante;
-	}
-
 	public Double getValor() {
 		return valor;
 	}
@@ -83,8 +83,16 @@ import lombok.NoArgsConstructor;
 	public void setDataCadastro(LocalDate dataCadastro) {
 		this.dataCadastro = dataCadastro;
 	}
-	
-}
 
+	public Fabricante getFabricante() {
+		return fabricante;
+	}
+
+	public void setFabricante(Fabricante fabricante) {
+		this.fabricante = fabricante;
+	}
 	
 	
+
+
+}
