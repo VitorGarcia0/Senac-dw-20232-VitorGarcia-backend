@@ -49,6 +49,20 @@ public class ProdutoSpecifications {
 	            	//WHERE peso <= max
 	            	predicates.add(cb.lessThanOrEqualTo(root.get("peso"), seletor.getPesoMaximo()));
 	            }
+	            
+//	            if(seletor.getFabricante() != null) {
+//	            	predicates.add(cb.like(root.join("Fabricante").get("nome"), null));
+//	            }
+	            
+//	            Desenvolver em ProdutoSeletor e ProdutoEspecification a busca de produtos com os seguintes filtros
+//	            - Peso (máximo e mínimo)
+//	            - Valor (máximo e mínimo)
+//	            - CNPJ do Fabricante (com '=' )
+	            
+	            
+	           
+	            
+	            
 
 	            return cb.and(predicates.toArray(new Predicate[0]));
 	        };
