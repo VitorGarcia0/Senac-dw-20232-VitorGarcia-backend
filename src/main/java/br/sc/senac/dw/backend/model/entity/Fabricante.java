@@ -19,8 +19,6 @@ public class Fabricante {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
-	
-	// @JsonIgnore // não vai aparecer no JSON
 	private String cnpj;
 	
 	@JsonBackReference // ANOTAÇÃO PARA RESOLVER O LOOP de gerar o JSON
