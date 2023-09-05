@@ -20,7 +20,7 @@ import br.sc.senac.dw.backend.service.ProdutoService;
 
 @RestController
 @RequestMapping(path = "/api/produtos") // shorthand for @Controller and @ResponseBody rolled together
-@CrossOrigin(origins = {"http://localhost:4200","http://localhost:5500"}, maxAge = 3600)
+@CrossOrigin(origins = {"http://localhost:4200","http://localhost:5500"}, maxAge = 3600) // Por padrão para permitir o servidor algumas origens
 public class ProdutoController {
 	
 	@Autowired

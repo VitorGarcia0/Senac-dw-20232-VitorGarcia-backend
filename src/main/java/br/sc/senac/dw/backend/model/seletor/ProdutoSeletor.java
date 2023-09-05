@@ -3,6 +3,9 @@ package br.sc.senac.dw.backend.model.seletor;
 import java.time.LocalDate;
 
 public class ProdutoSeletor extends BaseSeletor {
+	
+	
+// COLOCAR O NOME DESSES ATRIBUTOS NO POSTMAN, para consultar
 
 	private String nome;
 	private String fabricante;
@@ -12,6 +15,8 @@ public class ProdutoSeletor extends BaseSeletor {
 	private Double pesoMaximo;
 	private LocalDate dataCadastroInicial;
 	private LocalDate dataCadastroFinal;
+	
+	private String cnpjFabricante;
 	
 	
 	public String getNome() {
@@ -62,5 +67,14 @@ public class ProdutoSeletor extends BaseSeletor {
 	public void setDataCadastroFinal(LocalDate dataCadastroFinal) {
 		this.dataCadastroFinal = dataCadastroFinal;
 	}
+	
+	public String getCnpjFabricante() {
+		return cnpjFabricante;
+	}
+	public void setCnpjFabricante(String cnpjFabricante) {
+		this.cnpjFabricante = cnpjFabricante;
+	}
+	
+	
 			
 }
