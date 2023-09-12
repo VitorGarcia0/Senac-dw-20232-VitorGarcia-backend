@@ -79,6 +79,11 @@ public class ProdutoController {
 		return produtoService.excluir(id);
 	}
 				
+	public boolean excluirPorCpf(String cpf) {
+		
+		
+		return false;
+	}
 			
 	
 
