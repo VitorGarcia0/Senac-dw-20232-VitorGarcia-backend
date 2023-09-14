@@ -18,27 +18,26 @@ public class ProdutoService {
 	// Autowired, caso o repository não esteja instaciado, ele vai instanciar;
 	// Injenção do OBJETO
 	@Autowired
-	private ProdutoRepository produtoRepository;    // REPOSITORY == ANTIGO DAO
+	private ProdutoRepository produtoRepository; // REPOSITORY == ANTIGO DAO
 
-	
 	@Transactional
 	public List<Produto> listarTodos() {
 		return produtoRepository.findAll();
 	}
-	
+
 	public List<Produto> listarComSeletor(ProdutoSeletor seletor) {
-		//https://www.baeldung.com/spring-data-jpa-query-by-example
+		// https://www.baeldung.com/spring-data-jpa-query-by-example
 		Specification<Produto> specification = ProdutoSpecifications.comFiltros(seletor);
 		return produtoRepository.findAll(specification);
 	}
-	
+
 	@Transactional
 	public Produto consultarPorId(Long id) {
 		// GET REFERENCERED BY ID RETORNA SÓ 1 ID
 		return produtoRepository.findById(id.longValue()).get();
 	}
 
-	public Produto inserir(Produto novoProduto) throws CampoInvalidoException{
+	public Produto inserir(Produto novoProduto) throws CampoInvalidoException {
 		validarCamposObrigatorios(novoProduto);
 		return produtoRepository.save(novoProduto);
 	}
@@ -52,30 +51,30 @@ public class ProdutoService {
 		produtoRepository.deleteById(id.longValue());
 		return true;
 	}
-	
-	
+
 	private void validarCamposObrigatorios(Produto produto) throws CampoInvalidoException {
 		String mensagemValidacao = "";
 		mensagemValidacao += validarCampoString(produto.getNome(), "nome");
-		//mensagemValidacao += validarCampoString(produto.getFabricante(), "Fabricante");
+		// mensagemValidacao += validarCampoString(produto.getFabricante(),
+		// "Fabricante");
 		mensagemValidacao += validarCampoDouble(produto.getValor(), "Valor");
 		mensagemValidacao += validarCampoDouble(produto.getPeso(), "Peso");
-		
-		if(!mensagemValidacao.isEmpty()) {
+
+		if (!mensagemValidacao.isEmpty()) {
 			throw new CampoInvalidoException(mensagemValidacao);
 		}
-		
+
 	}
 
-	private String validarCampoString(String valorCampo, String nomeCampo  ) {
-		if(valorCampo == null || valorCampo.trim().isEmpty()) {
+	private String validarCampoString(String valorCampo, String nomeCampo) {
+		if (valorCampo == null || valorCampo.trim().isEmpty()) {
 			return "Informe o " + nomeCampo + " \n";
 		}
 		return "";
 	}
-	
+
 	private String validarCampoDouble(Double valorCampo, String nomeCampo) {
-		if(valorCampo == null) {
+		if (valorCampo == null) {
 			return "Informe o " + nomeCampo + " \n";
 		}
 		// TODO Auto-generated method stub
