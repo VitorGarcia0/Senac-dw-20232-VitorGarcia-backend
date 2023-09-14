@@ -55,16 +55,17 @@ public class ProdutoSpecifications {
 			if (seletor.getValorMinimo() != null && seletor.getValorMinimo() != null) {
 				predicates.add(cb.between(root.get("valor"), seletor.getValorMinimo(), seletor.getValorMaximo()));
 			
-			} else if (seletor.getValorMinimo() != null) {
-				// WHERE peso >= min
-				predicates.add(cb.greaterThanOrEqualTo(root.get("valor"), seletor.getValorMinimo()));
-	
-			} else if (seletor.getValorMaximo() != null) {
-				// WHERE peso <= max
-				predicates.add(cb.lessThanOrEqualTo(root.get("valor"), seletor.getValorMaximo()));
 			}
+//				else if (seletor.getValorMinimo() != null) {
+//				// WHERE peso >= min
+//				predicates.add(cb.greaterThanOrEqualTo(root.get("valor"), seletor.getValorMinimo()));
+//	
+//			} else if (seletor.getValorMaximo() != null) {
+//				// WHERE peso <= max
+//				predicates.add(cb.lessThanOrEqualTo(root.get("valor"), seletor.getValorMaximo()));
+//			}
 			
-			if (seletor.getCnpjFabricante() != null) {
+			if (seletor.getCnpjFabricante() != null && !seletor.getCnpjFabricante().isEmpty()) {
 				predicates.add(cb.equal(root.join("fabricante").get("cnpj"), seletor.getCnpjFabricante()));
 			}
 
