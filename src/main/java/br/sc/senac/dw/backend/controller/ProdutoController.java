@@ -80,8 +80,7 @@ public class ProdutoController {
 	}
 				
 	public boolean excluirPorCpf(String cpf) {
-		
-		
+				
 		return false;
 	}
 			
