@@ -10,6 +10,23 @@ CREATE TABLE backend.produto (
   KEY `id_fabricante` (`id_fabricante`),
   CONSTRAINT `id_fabricante` FOREIGN KEY (`id_fabricante`) REFERENCES `fabricantes` (`id`)
   
+  CREATE TABLE backend.produto (
+    id_produto INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    id_fabricante INT NOT NULL,
+    valor DECIMAL(10, 2) NOT NULL,
+    peso DECIMAL(8, 2) NOT NULL,
+    data_cadastro DATE NOT NULL
+);
+
+CREATE TABLE backend.fabricantes (
+    cnpj VARCHAR(14) NOT NULL,
+    CEP VARCHAR(9) NOT NULL,
+    UF CHAR(2) NOT NULL,
+    Cidade VARCHAR(255) NOT NULL,
+    nome VARCHAR(255) NOT NULL
+);
+  
 );
 
 CREATE TABLE backend.fabricantes (
@@ -21,3 +38,5 @@ CREATE TABLE backend.fabricantes (
 ALTER TABLE backend.fabricantes ADD CEP varchar(12) NOT NULL;
 ALTER TABLE backend.fabricantes ADD Cidade varchar(255) NOT NULL;
 ALTER TABLE backend.fabricantes ADD UF varchar(2) NOT NULL;
+
+ALTER TABLE backend.produto  ADD fabricante varchar(100) NOT NULL;
