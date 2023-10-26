@@ -18,3 +18,4 @@ CREATE TABLE backend.produto (
 	CONSTRAINT produtos_pk PRIMARY KEY (id),
 	CONSTRAINT id_fabricante foreign key (id_fabricante) references backend.fabricante(ID)
 );
+
