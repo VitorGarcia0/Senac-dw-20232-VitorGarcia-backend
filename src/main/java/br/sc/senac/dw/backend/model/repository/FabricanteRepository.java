@@ -13,6 +13,6 @@ import br.sc.senac.dw.backend.model.entity.Fabricante;
 public interface FabricanteRepository extends JpaRepository<Fabricante, Long>, JpaSpecificationExecutor<Fabricante> {
 	// https://reflectoring.io/spring-data-specifications/
 
-	List<Fabricante> findAllByNomeLike(String nomeInformado);
+	//List<Fabricante> findAllByNomeLike(String nomeInformado);
 	
 }

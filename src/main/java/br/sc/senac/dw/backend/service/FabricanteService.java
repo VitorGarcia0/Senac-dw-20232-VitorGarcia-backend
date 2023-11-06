@@ -20,7 +20,7 @@ public class FabricanteService {
 	public List<Fabricante> listarTodos() {
 		return fabricanteRepository.findAll();
 	}
-		
+		 
 	public Fabricante inserir(Fabricante novoFabricante) throws CampoInvalidoException {
 		validarCamposObrigatorios(novoFabricante);
 		return fabricanteRepository.save(novoFabricante);
