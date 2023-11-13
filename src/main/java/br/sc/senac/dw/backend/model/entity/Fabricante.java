@@ -13,7 +13,7 @@ import jakarta.persistence.Table;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "fabricantes")
+@Table(name = "fabricante")
 @NoArgsConstructor
 public class Fabricante {
 	
