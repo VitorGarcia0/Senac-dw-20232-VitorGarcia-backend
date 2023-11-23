@@ -17,7 +17,12 @@ public class ProdutoSeletor extends BaseSeletor {
 	private LocalDate dataCadastroFinal;
 	
 	private String cnpjFabricante;
+
 	
+	public ProdutoSeletor() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	
 	public String getNome() {
 		return nome;
