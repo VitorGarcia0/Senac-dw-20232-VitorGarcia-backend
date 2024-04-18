@@ -30,10 +30,6 @@ public class Fabricante {
     @OneToMany(mappedBy = "fabricante")
     private List<Produto> produtos;
 
-    public Fabricante() {
-		super();
-	}
-
 	public Fabricante(Integer id, String nome, String cnpj, String cep, String cidade, String uf,
 			List<Produto> produtos) {
 		super();

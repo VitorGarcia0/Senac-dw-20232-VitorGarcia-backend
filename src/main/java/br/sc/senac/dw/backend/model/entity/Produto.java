@@ -39,11 +39,6 @@ public class Produto {
 		this.dataCadastro = dataCadastro;
 	}
 
-	public Produto() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
 	public Integer getId() {
 		return id;
 	}
@@ -91,8 +86,5 @@ public class Produto {
 	public void setFabricante(Fabricante fabricante) {
 		this.fabricante = fabricante;
 	}
-	
-	
-
 
 }
